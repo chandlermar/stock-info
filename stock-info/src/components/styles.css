@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+.header {
+  text-align: center;
+  font-size: 35px;
+  background-color: '#e3f2fd';
+  font-family: "Nunito", sans-serif;
+}
+
+/* Credit to https://codepen.io/andrewsims/pen/mQoYwz for card animation */
+.card1 {
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #d3d3d3 ;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: #424242;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(21);
+  }
+}
+
+.card1:hover .card-title{
+  transition: all 0.3s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.randomizer {
+  margin-right: 1%;
+  color: black;
+  transition: transform 5s ease;
+}
+
+.randomizer:hover {
+  transform: scale(1.1);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 80px;
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;  
+}
+
+.info-header {
+  text-align: center;
+  padding: 2.5% 0%;
+  font-size: 60px;
+  font-family: "Nunito", sans-serif;
+}
+
+.back {
+  margin-right: 1%;
+  color: black;
+  transition: transform 5s ease;
+}
+
+.back:hover {
+  transform: scale(1.1);
+}
+
+.info-subheader {
+  text-align: justify;
+  padding: 0% 20%;
+  padding-bottom: 5%;
+  font-family: "Nunito", sans-serif;
+}
+
+.info-container {
+  display: flex;
+  gap: 15%;
+  color: white;
+  background-color: #424242;
+}
+
+.info-container-left {
+  flex: 1;
+  border-radius: 10px;
+  font-size: 20px;
+  padding-left: 20%;
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+}
+
+.info-container-right {
+  flex: 1;
+  border-radius: 10px;
+  font-size: 20px;
+  padding-right: 15%;
+  font-family: "Nunito", sans-serif;
+}
