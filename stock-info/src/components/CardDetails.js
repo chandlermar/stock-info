@@ -28,7 +28,7 @@ function CardDetails() {
       const baseUrl = "https://www.alphavantage.co/query";
 
       const response = await axios.get(
-        `${baseUrl}?function=TIME_SERIES_DAILY&symbol=${card.ticker}&interval=5min&apikey=8WZD49QCIW42AECQ`
+        `${baseUrl}?function=TIME_SERIES_DAILY&symbol=${card.ticker}&interval=5min&apikey=ENTERKEYHERE`
       );
 
       const stockPrices = response.data["Time Series (Daily)"]; //dates
@@ -51,7 +51,7 @@ function CardDetails() {
     try {
         const baseUrl = "https://www.alphavantage.co/query";
         const response = await axios.get(
-            `${baseUrl}?function=OVERVIEW&symbol=${card.ticker}&apikey=8WZD49QCIW42AECQ`
+            `${baseUrl}?function=OVERVIEW&symbol=${card.ticker}&apikey=ENTERKEYHERE`
           );
         setCompanyOverview(response.data);
     }
@@ -78,15 +78,15 @@ function CardDetails() {
             <h3 className = "info-subheader"> {companyOverview["Description"]} </h3>
             <div className = "info-container">
                 <div className = "info-container-left">
-                    <p><b>Name: </b> {companyOverview["Name"]} </p>
-                    <p><b>Industry: </b> {companyOverview["Industry"]} </p>
-                    <p><b>Asset Type: </b> {companyOverview["AssetType"]} </p>
-                    <p><b>Exchange: </b> {companyOverview["Exchange"]} </p>
-                    <p><b>Sector: </b> {companyOverview["Sector"]} </p>
+                    <p><b>Name: </b> {companyOverview && companyOverview["Name"] ? companyOverview["Name"] : 'N/A'} </p>
+                    <p><b>Industry: </b> {companyOverview && companyOverview["Industry"] ? companyOverview["Industry"] : 'N/A'} </p>
+                    <p><b>Asset Type: </b> {companyOverview && companyOverview["AssetType"] ? companyOverview["AssetType"] : 'N/A'} </p>
+                    <p><b>Exchange: </b> {companyOverview && companyOverview["Exchange"] ? companyOverview["Exchange"] : 'N/A'} </p>
+                    <p><b>Sector: </b> {companyOverview && companyOverview["Sector"] ? companyOverview["Sector"] : 'N/A'} </p>
                 </div>
 
                 <div className = "info-container-right">
-                    <p><b>Market Capitalization: </b> ${companyOverview["MarketCapitalization"]} </p>
+                    <p><b>Market Capitalization: </b> ${companyOverview && companyOverview["MarketCapitalization"] ? companyOverview["MarketCapitalization"] : 'N/A'} </p>
                     <p><b>Date: </b> {lastTradingDay} </p>
                     <p><b>Close Price: </b> ${parseFloat(stockData["4. close"]).toFixed(2)} </p>
                     <p><b>Volume: </b> ${stockData["5. volume"]} </p>
